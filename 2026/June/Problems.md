@@ -12,7 +12,7 @@
 12. `3559. Number of Ways to Assign Edge Weights II `
 13. `3838. Weighted Word Mapping`
 
-
+******************************** Solutions **********************************************
 1. `2144. Minimum Cost of buying candies with discount`
 2. `3633. Earliest Finish Time for Land and water rides I`
 3. `3635. Earliest Finish Time for Land and water rides II`
