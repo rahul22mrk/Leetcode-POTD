@@ -10,7 +10,7 @@
 10. 3691. Maximum Total Subarray Value II
 11. 3558. Number of Ways to Assign Edge Weights I
 12. 3559. Number of Ways to Assign Edge Weights II 
-
+13. 3838. Weighted Word Mapping
 
 
 1. 2144. Minimum Cost of buying candies with discount
@@ -408,5 +408,22 @@ class Solution {
         }
 
         return result;
+    }
+}
+13. 3838. Weighted Word Mapping
+class Solution {
+    public String mapWordWeights(String[] words, int[] weights) {
+        StringBuilder sb = new StringBuilder();
+
+        for(String word:words){
+            int sum = 0;
+            for(char ch : word.toCharArray()){
+                sum += weights[ch-'a'];
+            }
+            int temp  = 26 - 1 - (sum %26) ;
+            sb.append((char) ('a'+temp));
+        }
+
+        return sb.toString();
     }
 }
