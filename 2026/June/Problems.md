@@ -1,24 +1,25 @@
-1. 2144. Minimum Cost of buying candies with discount
-2. 3633. Earliest Finish Time for Land and water rides I
-3. 3635. Earliest Finish Time for Land and water rides II
-4. 3751. Total Waviness of numbers in range I
-5. 3753. Total Waviness of numbers in Range II
-6. 2574. Left and Right Sum Differences
-7. 2196. Create Binary Tree From Descriptions
-8. 2161. Partition Array According to Given Pivot
-9. 3689. Maximum Total Subarray Value I
-10. 3691. Maximum Total Subarray Value II
-11. 3558. Number of Ways to Assign Edge Weights I
-12. 3559. Number of Ways to Assign Edge Weights II 
-13. 3838. Weighted Word Mapping
+1. `2144. Minimum Cost of buying candies with discount`
+2. `3633. Earliest Finish Time for Land and water rides I`
+3. `3635. Earliest Finish Time for Land and water rides II`
+4. `3751. Total Waviness of numbers in range I`
+5. `3753. Total Waviness of numbers in Range II`
+6. `2574. Left and Right Sum Differences`
+7. `2196. Create Binary Tree From Descriptions`
+8. `2161. Partition Array According to Given Pivot`
+9. `3689. Maximum Total Subarray Value I`
+10. `3691. Maximum Total Subarray Value II`
+11. `3558. Number of Ways to Assign Edge Weights I`
+12. `3559. Number of Ways to Assign Edge Weights II `
+13. `3838. Weighted Word Mapping`
 
 
-1. 2144. Minimum Cost of buying candies with discount
-2. 3633. Earliest Finish Time for Land and water rides I
-3. 3635. Earliest Finish Time for Land and water rides II
-4. 3751. Total Waviness of numbers in range I
-5. 3753. Total Waviness of numbers in Range II
-6. 2574. Left and Right Sum Differences
+1. `2144. Minimum Cost of buying candies with discount`
+2. `3633. Earliest Finish Time for Land and water rides I`
+3. `3635. Earliest Finish Time for Land and water rides II`
+4. `3751. Total Waviness of numbers in range I`
+5. `3753. Total Waviness of numbers in Range II`
+6. `2574. Left and Right Sum Differences`
+```java
 class Solution {
     public int[] leftRightDifference(int[] nums) {
         int n = nums.length;
@@ -45,7 +46,9 @@ class Solution {
         
     }
 }
-7. 2196. Create Binary Tree From Descriptions
+```
+7. `2196. Create Binary Tree From Descriptions`
+```java
 class Solution {
     public TreeNode createBinaryTree(int[][] descriptions) {
         
@@ -86,8 +89,9 @@ class Solution {
     }
 
 }
-
-8. 2161. Partition Array According to Given Pivot
+```
+8. `2161. Partition Array According to Given Pivot`
+```java
 class Solution {
     public int[] pivotArray(int[] nums, int pivot) {
         int lessThanCnt = 0;
@@ -116,8 +120,9 @@ class Solution {
         return ans;
     }
 }
-
-9. 3689. Maximum Total Subarray Value I
+```
+9. `3689. Maximum Total Subarray Value I`
+```java
 class Solution {
     public long maxTotalValue(int[] nums, int k) {
         long max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
@@ -130,7 +135,9 @@ class Solution {
         
     }
 }
-10. 3691. Maximum Total Subarray Value II
+```
+10. `3691. Maximum Total Subarray Value II`
+```java
 //Approach (Segment Tree + Max Heap)
 //T.C : O(n*logn + k*logn)
 //S.C : O(n)
@@ -234,8 +241,9 @@ class Solution {
         return result;
     }
 }
-
-11. 3558. Number of Ways to Assign Edge Weights I
+```
+11. `3558. Number of Ways to Assign Edge Weights I`
+```java
 //Approach (DFS to find max depth + Fast Exponentiation)
 //T.C : O(n) for DFS + O(log n) for power
 //S.C : O(n) for adjacency list + O(n) recursion stack
@@ -288,9 +296,10 @@ class Solution {
         return (int) power(2, maxDepth - 1);
     }
 }
+```
 
-
-12. 3559. Number of Ways to Assign Edge Weights II
+12. `3559. Number of Ways to Assign Edge Weights II`
+```java
 //Approach (Using Binary Lifting): Build an ancestor table via DFS + binary lifting and answer each LCA query by lifting nodes using binary bits.
 //T.C : O(N·log N + Q·log N)
 //S.C : O(N·log N)
@@ -410,7 +419,9 @@ class Solution {
         return result;
     }
 }
-13. 3838. Weighted Word Mapping
+```
+13. `3838. Weighted Word Mapping`
+```java
 class Solution {
     public String mapWordWeights(String[] words, int[] weights) {
         StringBuilder sb = new StringBuilder();
@@ -427,3 +438,4 @@ class Solution {
         return sb.toString();
     }
 }
+```
