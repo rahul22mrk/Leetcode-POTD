@@ -11,6 +11,7 @@
 11. `3558. Number of Ways to Assign Edge Weights I`
 12. `3559. Number of Ways to Assign Edge Weights II `
 13. `3838. Weighted Word Mapping`
+14. `2130. Maximum Twin Sum of a Linked List`
 
 ******************************** Solutions **********************************************
 1. `2144. Minimum Cost of buying candies with discount`
@@ -436,6 +437,154 @@ class Solution {
         }
 
         return sb.toString();
+    }
+}
+```
+14. `2130. Maximum Twin Sum of a Linked List`
+```java
+Approach 1: Using ArrayList
+Time: O(N)
+Space: O(N)
+
+class Solution {
+    public int pairSum(ListNode head) {
+        List<Integer> list = new ArrayList<>();
+
+        while (head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+
+        int i = 0, j = list.size() - 1;
+        int result = 0;
+
+        while (i < j) {
+            result = Math.max(result, list.get(i) + list.get(j));
+            i++;
+            j--;
+        }
+
+        return result;
+    }
+}
+```
+
+```java
+Approach 2: Using Stack
+Time: O(N)
+Space: O(N)
+
+class Solution {
+    public int pairSum(ListNode head) {
+        Stack<Integer> stack = new Stack<>();
+        ListNode curr = head;
+
+        while (curr != null) {
+            stack.push(curr.val);
+            curr = curr.next;
+        }
+
+        curr = head;
+        int count = 1;
+        int n = stack.size();
+        int result = 0;
+
+        while (count <= n / 2) {
+            result = Math.max(result, curr.val + stack.pop());
+            curr = curr.next;
+            count++;
+        }
+
+        return result;
+    }
+}
+```
+
+```java
+Approach 3: Reverse Second Half (Optimal)
+Time: O(N)
+Space: O(1)
+
+class Solution {
+    public int pairSum(ListNode head) {
+
+        // Find middle
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse second half
+        ListNode prev = null;
+        ListNode curr = slow;
+
+        while (curr != null) {
+            ListNode nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+
+        // Calculate maximum twin sum
+        curr = head;
+        int result = 0;
+
+        while (prev != null) {
+            result = Math.max(result, curr.val + prev.val);
+            curr = curr.next;
+            prev = prev.next;
+        }
+
+        return result;
+    }
+}
+```
+
+```java
+`My Solution`
+class Solution {
+    public int pairSum(ListNode head) {
+        ListNode midNode = middleNode(head);
+        ListNode revNode = reverseList(midNode);
+
+        ListNode curr = head;
+        int maxSum = Integer.MIN_VALUE;
+        while(revNode!=null){
+            maxSum = Math.max(maxSum, revNode.val + curr.val);
+            revNode = revNode.next;
+            curr = curr.next;
+        }
+
+        return maxSum;
+    }
+
+    private ListNode middleNode(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast!= null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+
+    private ListNode reverseList(ListNode head){
+        ListNode curr = head, prev = null;
+
+        while(curr != null){
+            ListNode next = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = next;
+        }
+
+        return prev;
     }
 }
 ```
